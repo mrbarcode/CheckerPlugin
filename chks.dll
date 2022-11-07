@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Text;
+using xNet;
+using System.IO;
+
+namespace SimpleChecker
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int check = 0;
+
+            int live = 0;
+            int dead = 0;
+
+            List<string> accounts = new List<string>(File.ReadAllLines("accounts.txt"));
+
+            foreach (string account in accounts)
+            {
+
+                using (HttpRequest request = new HttpRequest())
+                {
+
+                    Console.Title = ("ABOUT");
+
+                    string email = account.Split(':')[0];
+                    string pass = account.Split(':')[1];
+
+                    request.UserAgent = "UserAgentbooss";
+                    request.Cookies = new CookieDictionary(cooki);
+                    request.Proxy = null;
+                    request.IgnoreProtocolErrors = Protocolsss;
+                    request.AllowAutoRedirect = AllowAutosss;
+                    request.KeepAlive = KeepAlivesss;
+
+                    ParamCodes
+
+                    string response = request.Post("POSTURL").ToString();
+
+                    if (response.Contains("loginwork"))
+                    {
+                        Console.WriteLine("VALID ACCOUNT" + account);
+                        check += 1;
+                        live += 1;
+                    }
+                    else
+                    {
+                        check += 1;
+                        dead += 1;
+                    }
+                }
+            }
+        }
+    }
+}
